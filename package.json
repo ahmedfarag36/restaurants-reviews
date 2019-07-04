@@ -4,8 +4,7 @@
   "description": "A reviews app built with express",
   "main": "app.js",
   "scripts": {
-    "build": "npm install",
-    "server": "node app.js"
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
