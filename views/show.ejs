@@ -1,0 +1,75 @@
+<% include partials/header.ejs %>
+
+<main id="restaurant">
+    <section>
+        <h2><%= restaurant.name %></h2>
+        <picture>
+            <source srcset="/img/<%= restaurant.photos.photoWebp_400 %> 400w, /img/<%= restaurant.photos.photoWebp %> 800w" type="image/webp">
+            <img srcset="/img/<%= restaurant.photos.photoJPG_400 %> 400w, /img/<%= restaurant.photos.photoJPG %> 800w" src="/img/<%= restaurant.photos.photoJPG %>" alt="<%= restaurant.photos.alt %>">
+        </picture>
+        <p id="cuisine_type">
+            <i class=""></i>            
+            <%= restaurant.cuisine_type %>
+        </p>
+        <p id="address">
+            <i class="fa fa-map-marker"></i>    
+            <%= restaurant.address %>
+        </p>
+    </section>
+
+    <section>
+        <h3>Operating Hours</h3>
+        <table id="operating-hours">
+            <tr>
+                <td>Monday</td>
+                <td><%= restaurant.operating_hours.Monday %></td>
+            </tr>
+            <tr>
+                <td>Tuesday</td>
+                <td><%= restaurant.operating_hours.Tuesday %></td>
+            </tr>
+            <tr>
+                <td>Wednesday</td>
+                <td><%= restaurant.operating_hours.Wednesday %></td>
+            </tr>
+            <tr>
+                <td>Thursday</td>
+                <td><%= restaurant.operating_hours.Thursday %></td>
+            </tr>
+            <tr>
+                <td>Friday</td>
+                <td><%= restaurant.operating_hours.Friday %></td>
+            </tr>
+            <tr>
+                <td>Saturday</td>
+                <td><%= restaurant.operating_hours.Saturday %></td>
+            </tr>
+            <tr>
+                <td>Sunday</td>
+                <td><%= restaurant.operating_hours.Sunday %></td>
+            </tr>
+        </table>
+    </section>
+
+    <section class="reviews">
+        <h3>Users Reviews</h3>
+        <a href="/restaurants/<%= restaurant._id %>/comments/new" class="new">New Review</a>
+        <ul>
+            <% restaurant.reviews.forEach(review => { %>
+                <li>
+                    <p><strong><%= review.name %></strong> 
+                    <span>
+                        <% for(let i = 0; i < review.rating; i++) { %>
+                            <i class="fa fa-star"></i>
+                        <% } %>
+                    </span></p>
+                    <p><%= review.date %></p>
+                    <p><%= review.comments %></p>
+                </li>
+            <% }) %>
+        </ul>
+    </section>
+    <a href="/restaurants">Back</a>
+</main>
+
+<% include partials/footer.ejs %>

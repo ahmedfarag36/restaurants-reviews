@@ -1,0 +1,12 @@
+<% include partials/header.ejs %>
+
+<h2>Add New Comment</h2>
+<form action="/restaurants/<%= restaurantId %>/comments" method="POST">
+    <input type="text" name="comment[name]" placeholder="Author" />
+    <input type="text" name="comment[date]" value="<%= new Date().toDateString() %>" />
+    <input type="number" name="comment[rating]" placeholder="Rating" min="0" max="5" step="1" />
+    <textarea name="comment[comments]" placeholder="Comment"></textarea>
+    <button>Submit</button>
+</form>
+
+<% include partials/footer.ejs %>

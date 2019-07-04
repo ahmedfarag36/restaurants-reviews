@@ -1,0 +1,26 @@
+<% include partials/header.ejs %>
+
+<div class="jumbtron">
+	<h1>Browse our selected Restaurants</h1>
+</div>
+
+<main>
+	<ul id="restaurants-list">
+		<% restaurants.forEach(restaurant => { %>
+			<li>
+				<picture>
+					<source srcset="/img/<%= restaurant.photos.photoWebp_400 %> 400w, /img/<%= restaurant.photos.photoWebp %> 800w" type="image/webp">
+					<img srcset="/img/<%= restaurant.photos.photoJPG_400 %> 400w, /img/<%= restaurant.photos.photoJPG %> 800w" src="/img/<%= restaurant.photos.photoJPG %>" alt="<%= restaurant.photos.alt %>">
+				</picture>
+				<h2><%= restaurant.name %></h2>
+				<h5><%= restaurant.neighborhood %></h5>
+				<h5><%= restaurant.address %></h5>
+				<a href="/restaurants/<%= restaurant._id %>">Details</a>
+			</li>
+		<% }) %>
+	</ul>
+	<!--<a href="/seed">Seed</a>-->
+</main>
+<a href="/restaurants/new" class="new-restaurant">OR ADD YOURS</a>
+
+<!--<% include partials/footer.ejs %>-->

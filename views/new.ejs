@@ -1,0 +1,46 @@
+<% include partials/header.ejs %>
+
+<form action="/restaurants" method="post">
+	<h2>Add New Restaurant</h2>
+	<input type="text" name="restaurant[name]" placeholder="Name" >
+	<input type="text" name="restaurant[photos.photoJPG]" placeholder="Photo" >
+	<input type="text" name="restaurant[address]" placeholder="Address" >
+	<input type="text" name="restaurant[cuisineType]" placeholder="Cuisine Type" >
+	<input type="text" name="restaurant[neighborhood]" placeholder="Neighborhood">
+	<h3>Operating Hours:</h3>
+	<section>
+		<label>Monday
+			From <input type="time" name="restaurant[operating_hours.Monday]">
+			TO <input type="time" name="restaurant[operating_hours.Monday]">
+		</label>
+		<label>Tuesday
+			<input type="time" name="restaurant[operating_hours.Tuesday]">
+			<input type="time" name="restaurant[operating_hours.Tuesday]">
+		</label>
+		<label>Wednesday
+			<input type="time" name="restaurant[operating_hours.Wednesday]">
+			<input type="time" name="restaurant[operating_hours.Wednesday]">
+		</label>
+		<label>Thursday
+			<input type="time" name="restaurant[operating_hours.Thursday]">
+			<input type="time" name="restaurant[operating_hours.Thursday]">
+		</label>
+		<label>Friday
+			<input type="time" name="restaurant[operating_hours.Friday]">
+			<input type="time" name="restaurant[operating_hours.Friday]">
+		</label>
+		<label>Saturday
+			<input type="time" name="restaurant[operating_hours.Saturday]">
+			<input type="time" name="restaurant[operating_hours.Saturday]">
+		</label>
+		<label>Sunday
+			<input type="time" name="restaurant[operating_hours.Sunday]">
+			<input type="time" name="restaurant[operating_hours.Sunday]">
+		</label>
+	</section>
+	<small>All Fields are Required</small>
+	<button>ADD Your Restaurant</button>
+	<a href="/restaurants">Back</a>
+</form>
+
+<% include partials/footer.ejs %>
